@@ -121,7 +121,38 @@ body{
 	color:#516d21;
 }
 
+#body-wrapper{
+	/*margin-top: 30px;
+    margin-bottom: 30px;*/
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 30px auto;
+    width: 980px;
+    height: 90vh;
+}
 
+#body-content{
+	position: relative;
+}
+.text-body{
+	float: left;
+	width: 690px;
+	position: relative;
+}
+
+.info{
+	float: left;
+	border-top: 1px solid;
+}
+
+#about-image{
+	margin-top: 20px;
+
+}
+
+#side-bar{
+	float: right;
+}
 
 
 
