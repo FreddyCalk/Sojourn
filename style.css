@@ -12,8 +12,24 @@ body{
 	margin:auto;
 	text-align:right;
 	line-height:78px;
+	font-family: Tahoma, sans-serif;
 }
 #adventure-link{
+	display:inline;
+	width:400px;
+}
+#adventure-link a{
+	color: #a7b29b;
+	text-decoration: none;
+	font-size: 9pt;
+	margin:0px 20px;
+}
+#adventure-link a:hover{
+	color: white;
+	text-decoration: none;
+}
+#adventure-link img{
+	margin:20px 2px -10px;
 	display:inline;
 }
 #header{
@@ -24,5 +40,28 @@ body{
 #header-content{
 	margin:auto;
 	padding:40px 0px;
-	width:940px;
+	width:980px;
+	line-height: 180px;
+}
+#header-content #header-image{
+	width:368px;
+	height:107px;
+	display:inline;
+	float:left;
+}
+#header-content #header-links{
+	float:left;
+	line-height: 180px;
+	margin-top: -40px;
+	margin-left: 50px;
+}
+#header-links a{
+	text-decoration: none;
+	margin:10px;
+	font-family:Ubuntu, sans-serif;
+	font-size: 14pt;
+	color: #675538;
+}
+#header-links a:hover{
+	color: #516d21;
 }
