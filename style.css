@@ -76,3 +76,62 @@ body{
 	font-size: 0.7em;
 	padding-left: 0.5em;
 }
+
+#footer{
+	background-image: url('tanbg.png');
+	height:250px;
+	margin:40px 0px;
+}
+#footer #footer-content{
+	width:980px;
+	height:92%;
+	padding:10px 20px;
+	margin:auto;
+	vertical-align: center;
+}
+#footer #address-container{
+	font-family: Tahoma, sans-serif;
+	margin:40px 0px 10px;
+	color:#675538;
+}
+#footer #address-container a{
+	color: #675538;
+	text-decoration: none;
+}
+#footer #address-container a:hover{
+	color: green;
+	text-decoration: underline;
+}
+#staff-login{
+	float:right;
+	margin-top: -20px;
+}
+#creator{
+	text-align: right;
+	margin-top: 80px;
+	font-size: 12px;
+	color: #675538;
+
+}
+#creator a{
+	color: #675538;
+	text-decoration: none;
+}
+#creator a:hover{
+	color:#516d21;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
