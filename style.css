@@ -1,0 +1,28 @@
+body{
+	background-image: url('darkgreenbg.png');
+	background-position: center;
+	width:100vw;
+	margin:0px;
+}
+#top{
+	height:78px;
+}
+#top-content{
+	width:940px;
+	margin:auto;
+	text-align:right;
+	line-height:78px;
+}
+#adventure-link{
+	display:inline;
+}
+#header{
+	background-image: url('tanbg.png');
+	height:180px;
+	width:100vw;
+}
+#header-content{
+	margin:auto;
+	padding:40px 0px;
+	width:940px;
+}
