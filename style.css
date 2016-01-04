@@ -24,6 +24,9 @@ body{
 	font-size: 9pt;
 	margin:0px 20px;
 }
+#adventure-link .text img{
+	margin:0px 5px;
+}
 #adventure-link a:hover{
 	color: white;
 	text-decoration: none;
@@ -67,4 +70,9 @@ body{
 }
 #header-links a:hover{
 	color: #516d21;
+}
+#header-links #contact:after{
+	content: '\25bc';
+	font-size: 0.7em;
+	padding-left: 0.5em;
 }
