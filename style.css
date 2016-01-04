@@ -128,30 +128,55 @@ body{
     background-color: #ffffff;
     margin: 30px auto;
     width: 980px;
-    height: 90vh;
+    overflow: hidden;
+    font-family: Tahoma, sans-serif;
 }
 
 #body-content{
 	position: relative;
+	width: 690px;
+	margin:20px;
 }
 .text-body{
 	float: left;
-	width: 690px;
+	width: 450px;
+	margin-right: 20px;
 	position: relative;
 }
 
 .info{
 	float: left;
-	border-top: 1px solid;
+	border-top: 1px solid #ccc;
+}
+#body-content h1{
+	color: #516d21;
 }
 
+.info h2{
+	color: #516d21;
+	width: 690px;
+}
+#about-video{
+	margin: 20px 0px 0px 50px;
+	font-size: 8px;
+}
 #about-image{
 	margin-top: 20px;
 
 }
-
+.italic{
+	font-style: italic;
+}
 #side-bar{
 	float: right;
+	margin: -980px auto 0px;
+	padding: 20px;
+	height:1120px;
+	background-color: #e2e4db;
+	color: #516d21;
+}
+#side-bar img{
+	margin: 10px;
 }
 
 
