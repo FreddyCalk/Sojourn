@@ -11,7 +11,7 @@
 	}
 
 
-	$query = "SELECT * FROM about WHERE section = 'body'";
+	$query = "SELECT * FROM about";
 
 	$result = mysql_query($query);
 
@@ -21,47 +21,41 @@
 	}
 
 	while($row = mysql_fetch_assoc($result)){
-		$rows[] = $row['content'];
+		$rows[$row['section']] = $row['content'];
 	}
 
-	$header_content = $rows[0];
-	$second_body_text = $rows[1];
-	$third_body_text = $rows[2];
-	$fourth_body_text = $rows[3];
-	$fifth_body_text =  $rows[4];
-	$sixth_body_text = $rows[5];
-	$seventh_body_text = $rows[6];
+	$header_content = $rows['about'];
+	$second_body_text = $rows['location'];
+	$third_body_text = $rows['location2'];
+	$fourth_body_text = $rows['membership'];
+	$fifth_body_text =  $rows['pricing'];
+	$sixth_body_text = $rows['pricingLink'];
+	$seventh_body_text = $rows['pricing2'];
 
-	$query = "SELECT * FROM about WHERE section = 'image'";
-
-	$result = mysql_query($query);
-
-
-	if(!$result){
-		die('Invalid Query: ' . mysql_error());
-	}
-
-	while($row = mysql_fetch_assoc($result)){
-		$imageRows[] = $row['content'];
-	}
+	
 	// print '<pre>';
 	// print_r($newRows);
 
-	$image_url_1 = $imageRows[0];
-	$image_url_2 = $imageRows[1];
-	$image_url_3 = $imageRows[2];
-	$image_url_4 = $imageRows[3];
-	$image_url_5 = $imageRows[4];
-	$image_url_6 = $imageRows[5];
-	$image_url_7 = $imageRows[6];
-	$image_url_8 = $imageRows[7];
-	$image_url_9 = $imageRows[8];
-	$image_url_10 = $imageRows[9];
-	$image_url_11 = $imageRows[10];
-	$image_url_12 = $imageRows[11];
-	$image_url_13 = $imageRows[12];
-	$image_url_14 = $imageRows[13];
-	$image_url_15 = $imageRows[14];
+	$image_url_1 = $rows['image1'];
+	$image_url_2 = $rows['image2'];
+	$image_url_3 = $rows['image3'];
+	$image_url_4 = $rows['image4'];
+	$image_url_5 = $rows['image5'];
+	$image_url_6 = $rows['image6'];
+	$image_url_7 = $rows['image7'];
+	$image_url_8 = $rows['image8'];
+	$image_url_9 = $rows['image9'];
+	$image_url_10 = $rows['image10'];
+	$image_url_11 = $rows['image11'];
+	$image_url_12 = $rows['image12'];
+	$image_url_13 = $rows['image13'];
+	$image_url_14 = $rows['image14'];
+	$image_url_15 = $rows['image15'];
+
+	$address = $rows['streetAddress'];
+	$cityState = $rows['cityState'];
+	$phone = $rows['phone'];
+	$email = $rows['email'];
 
 	// exit;
 ?>
@@ -146,11 +140,11 @@
 		<div id="footer">
 			<div id='footer-content'>
 				<div id="address-container">
-					9500 Medlock Bridge Rd.&nbsp; |&nbsp; Johns Creek, GA 30097&nbsp; |&nbsp; Phone: 678.405.2106 &nbsp; | &nbsp; Email:&nbsp;<a href="mailto:sojourn@perimeter.org">sojourn@perimeter.org</a>
+					<?php print $address;?>&nbsp; |&nbsp; <?php print $cityState;?>&nbsp; |&nbsp; Phone: <?php print $phone;?> &nbsp; | &nbsp; Email:&nbsp;<a href= <?php print 'mailto:'. $email;?>><?php print $email;?></a>
 				</div>
 				<img src=<?php print $image_url_14; ?>>
 				<a href="http://www.sojournadventures.org/staff_login"><img id="staff-login" src=<?php print $image_url_15; ?>></a>
-				<div id="creator">Webpage Created by <a href="http://www.freddycalk.com">Freddy Calk</a> and <a href="http://www.turboflanagan.com">Peter Flanagan</a></div>
+				<div id="creator">Webpage Created by <a href="http://www.freddycalk.com">Freddy Calk</a></div>
 			</div>
 		</div>
 	</div>
