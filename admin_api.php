@@ -10,16 +10,31 @@
 		die("Can't use phpland : " . mysql_error());
 	}
 
-	$query = "SELECT * FROM about WHERE section ='".$_GET['section']."'";
-	
-	$result = mysql_query($query);
+	if($_POST){
+		// print '<pre>';
+		// print_r($_POST);
+		// exit;
+		$query = "UPDATE about SET content = '" . $_POST['content'] . "' WHERE section = '" . $_POST['section'] . "'";
+		$update = mysql_query($query);
+		if(mysql_error()){
+			print mysql_error();
+		}else{ 
+			header('Location: http://local-phpland.com/admin.php?result=success');
+		}
+	}
 
-	$row = mysql_fetch_assoc($result);
+	if($_GET){
+		$query = "SELECT * FROM about WHERE section ='".$_GET['section']."'";
+		
+		$result = mysql_query($query);
 
-	if($row){
-		print json_encode($row);
-	}else{
-		print json_encode('error!');
+		$row = mysql_fetch_assoc($result);
+
+		if($row){
+			print json_encode($row);
+		}else{
+			print json_encode('error!');
+		}
 	}
 
 	exit;

@@ -42,51 +42,60 @@
 
 
 <body style="background-image: url('darkgreenbg.png');">
+	<div style="text-align:center">
+		<h1 style="color:white;">ADMIN PAGE</h1>
+	</div>
 	<div class="container">
-		<div class="row">
-			<div class="dropdown">
 
-
-				<select class='form-control' style="width: 400px; display: block; margin:30px auto; font-size:24px;">
-				<?php 
-					foreach($rows as $row){
-						print '<option value="'. $row['section']. '">' . $row['section'] . '</option>';
-					}
-				?>
-				</select>
-			</div>
-		</div>
-		<div class='row B'>
-			<div class='form-group'>
-				<textarea  id='content' class='form-control' style="margin: 30px auto; width:400px; height: 200px; display:block; font-size:16px; color:black;"></textarea>
-				<div style="text-align:center">
-					<input class="btn btn-warning"type="submit" style="width:200px; height: 50px; border-radius: 10px; margin:auto; font-size:24px;" value="Save Changes">
+		<?php if ($_GET['result']){
+			print '<h1>'.$_GET['result'].'</h1>';
+		} 
+		?>
+		<form action="http://local-phpland.com/admin_api.php" method="post">
+			<div class="row">
+				<div class="dropdown">
+					<select id="drop-down" name="section" class='form-control' style="width: 400px; display: block; margin:30px auto; font-size:24px;">
+					<option disabled selected>Choose A Section...</option>
+					<?php 
+						foreach($rows as $row){
+							print '<option value="'. $row['section']. '">' . $row['section'] . '</option>';
+						}
+					?>
+					</select>
 				</div>
 			</div>
-		</div>
-			
+			<div class='row B'>
+				<div class='form-group'>
+					<textarea  id='content' name="content" class='form-control' placeholder="Edit content here..." style="margin: 30px auto; width:400px; height: 200px; display:block; font-size:16px; color:black;"></textarea>
+					<div style="text-align:center">
+						<input class="btn btn-lg btn-warning" type="submit" style="width:200px; height: 50px; border-radius: 10px; margin:auto; font-size:24px;" value="Save Changes">
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 	
 </body>
 
-<script>
+<script type="text/javascript">
 
 $(document).ready(function(){
-	$('.form-control').change(function(){
-		var content = $(this).val()
-		var url = 'http://local-phpland.com/admin_api.php?page=about&section='+content;
-
+	updateTextArea($('#drop-down').val());
+	$('#drop-down').change(function(){
+		updateTextArea($(this).val());
+	
+	})
+})
+function updateTextArea(section){
+		var url = 'http://local-phpland.com/admin_api.php?page=about&section='+section;
 		$.getJSON(url, function(result){
 			$('#content').val(result.content);
 		})
-	})
-})
-
+}
 
 </script>
 
 </html>
-<?php print $rows[0]['content'];?>
 
 
 
