@@ -40,6 +40,10 @@
 	<div style="text-align:center">
 		<h1 style="color:white;">ADMIN PAGE</h1>
 	</div>
+	<div style="float:right; margin-right:100px;">
+		<a href="/" class="btn btn-primary">HOME</a>
+		<a href="index.php?logout=true" class="btn btn-danger">LOGOUT</a>
+	</div>
 	<div class="container">
 
 		<?php if(isset($_SESSION['username'])){
@@ -57,7 +61,21 @@
 		    	</div>
 		    	<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		    		<div class="panel-body">
-						This is where our add stuff will go
+						
+
+
+		    		<form action = "http://local-phpland.com/admin_api.php" method = "post">
+		    			<input type="text" name="section" class="form-control">
+		    			<input type="hidden" name="crud_task" value="addnew">
+		    			<textarea name="content" class="form-control"></textarea>
+		    			<input type="submit" class="btn btn-warning form-control" value="ADD">
+		    		</form>
+
+
+
+
+
+
 					</div>
 				</div>
 			</div>
@@ -102,7 +120,9 @@
 								<div class='form-group'>
 									<textarea  id='content' name="content" class='form-control' placeholder="Edit content here..." style="margin: 30px auto; width:400px; height: 200px; display:block; font-size:16px; color:black;"></textarea>
 									<div style="text-align:center">
+										<input type="hidden" name="crud_task" value="update">
 										<input class="btn btn-lg btn-warning" type="submit" style="width:200px; height: 50px; border-radius: 10px; margin:auto; font-size:24px;" value="Save Changes">
+										
 									</div>
 								</div>
 							</div>

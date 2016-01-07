@@ -1,10 +1,6 @@
 <?php
 	include 'inc/db_connect.php';
 
-print "<pre>";
-print_r($_POST);
-exit;
-
 	if(isset($_POST['email'])){
 		// print $_POST['email'];
 		// print $_POST['password'];
@@ -50,9 +46,12 @@ exit;
 
 <?php 
 	if($_GET['result'] == "failure"){
-		print "<h1>Your login information does not match any record in our system. Please retry or contact Stephen.";
+		print "<h1>Your login information does not match any record in our system. Please retry or contact Freddy.";
 	}
 ?>
+	<div style="float:right; margin: 20px 100px;">
+		<a href="/" class="btn btn-primary">HOME</a>
+	</div>
 	<form class="form-signin" method="post" action="login.php">
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<label for="inputEmail" class="sr-only">Email address</label>

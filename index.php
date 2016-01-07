@@ -2,6 +2,9 @@
 
 	include 'inc/db_connect.php';
 
+	if($_GET['logout'] == 'true'){
+		session_destroy();
+	}
 
 	$query = "SELECT * FROM about";
 
@@ -135,7 +138,7 @@
 					<?php print $address;?>&nbsp; |&nbsp; <?php print $cityState;?>&nbsp; |&nbsp; Phone: <?php print $phone;?> &nbsp; | &nbsp; Email:&nbsp;<a href= <?php print 'mailto:'. $email;?>><?php print $email;?></a>
 				</div>
 				<img src=<?php print $image_url_14; ?>>
-				<a href="http://www.sojournadventures.org/staff_login"><img id="staff-login" src=<?php print $image_url_15; ?>></a>
+				<a href="/login.php"><img id="staff-login" src=<?php print $image_url_15; ?>></a>
 				<div id="creator">Webpage Created by <a href="http://www.freddycalk.com">Freddy Calk</a></div>
 			</div>
 		</div>
