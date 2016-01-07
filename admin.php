@@ -1,18 +1,13 @@
 <?php
 
-	$link = mysql_connect('127.0.0.1','phpland','phpland');
+	include 'inc/db_connect.php';
 
-	if( !$link){
-		die('Could not connect: ' . mysql_error());
+	if(!isset($_SESSION['username'])){
+		header('Location: http://local-phpland.com/');
+		exit;
 	}
-	$db_selected = mysql_select_db('phpland',$link);
-	if(!$db_selected){
-		die("Can't use phpland : " . mysql_error());
-	}
-
-
 	$query = "SELECT * FROM about";
-
+	
 	$result = mysql_query($query);
 
 
@@ -47,32 +42,75 @@
 	</div>
 	<div class="container">
 
-		<?php if ($_GET['result']){
-			print '<h1>'.$_GET['result'].'</h1>';
+		<?php if(isset($_SESSION['username'])){
+			print '<h3 style="color:white">Welcome back, '.$_SESSION['username'].'</h3>';
 		} 
 		?>
-		<form action="http://local-phpland.com/admin_api.php" method="post">
-			<div class="row">
-				<div class="dropdown">
-					<select id="drop-down" name="section" class='form-control' style="width: 400px; display: block; margin:30px auto; font-size:24px;">
-					<option disabled selected>Choose A Section...</option>
-					<?php 
-						foreach($rows as $row){
-							print '<option value="'. $row['section']. '">' . $row['section'] . '</option>';
-						}
-					?>
-					</select>
-				</div>
-			</div>
-			<div class='row B'>
-				<div class='form-group'>
-					<textarea  id='content' name="content" class='form-control' placeholder="Edit content here..." style="margin: 30px auto; width:400px; height: 200px; display:block; font-size:16px; color:black;"></textarea>
-					<div style="text-align:center">
-						<input class="btn btn-lg btn-warning" type="submit" style="width:200px; height: 50px; border-radius: 10px; margin:auto; font-size:24px;" value="Save Changes">
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingOne">
+		    		<h4 class="panel-title">
+		    			<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		        			Add New Section
+		    			</a>
+		    		</h4>
+		    	</div>
+		    	<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		    		<div class="panel-body">
+						This is where our add stuff will go
 					</div>
 				</div>
 			</div>
-		</form>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingTwo">
+					<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Delete Section
+						</a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					<div class="panel-body">
+						This is where our delete stuff will go
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+					<h4 class="panel-title">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Update Section
+						</a>
+					</h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div class="panel-body">
+						<form action="http://local-phpland.com/admin_api.php" method="post">
+							<div class="row">
+								<div class="dropdown">
+									<select id="drop-down" name="section" class='form-control' style="width: 400px; display: block; margin:30px auto; font-size:24px;">
+									<option disabled selected>Choose A Section...</option>
+									<?php 
+										foreach($rows as $row){
+											print '<option value="'. $row['section']. '">' . $row['section'] . '</option>';
+										}
+									?>
+									</select>
+								</div>
+							</div>
+							<div class='row B'>
+								<div class='form-group'>
+									<textarea  id='content' name="content" class='form-control' placeholder="Edit content here..." style="margin: 30px auto; width:400px; height: 200px; display:block; font-size:16px; color:black;"></textarea>
+									<div style="text-align:center">
+										<input class="btn btn-lg btn-warning" type="submit" style="width:200px; height: 50px; border-radius: 10px; margin:auto; font-size:24px;" value="Save Changes">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 </body>

@@ -1,14 +1,6 @@
 <?php
 
-	$connection = mysql_connect('127.0.0.1','phpland','phpland');
-	
-	if( !$connection){
-		die('Could not connect: ' . mysql_error());
-	}
-	$db_selected = mysql_select_db('phpland',$connection);
-	if(!$db_selected){
-		die("Can't use phpland : " . mysql_error());
-	}
+	include 'inc/db_connect.php';
 
 
 	$query = "SELECT * FROM about";

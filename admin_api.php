@@ -1,14 +1,6 @@
 <?php
 
-	$link = mysql_connect('127.0.0.1', 'phpland', 'phpland');
-	if(!$link){
-		die('Not connected : ' . mysql_error());
-	}
-
-	$db_selected = mysql_select_db('phpland', $link);
-	if(!$db_selected){
-		die("Can't use phpland : " . mysql_error());
-	}
+	include 'inc/db_connect.php';
 
 	if($_POST){
 		// print '<pre>';
